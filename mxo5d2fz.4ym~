@@ -1,0 +1,183 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Controls;
+using System.Windows.Forms;
+
+namespace finalldbproject
+{
+    public partial class Inventory : Form
+    {
+        public Inventory()
+        {
+            InitializeComponent();
+        }
+
+      //  private string connectionString = "Data Source=LAPTOP-NBF902DT\\SQLEXPRESS;Initial Catalog=ShopVerse;Integrated Security=True;TrustServerCertificate=True;";
+
+        private void Back1_Click(object sender, EventArgs e)
+        {
+            Choose ch = new Choose();
+            ch.Show();
+            this.Hide();
+        }
+
+        private void ExitPro_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+              "Are you sure you want to exit?", "Confirm Exit",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question
+          );
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void Add_Item_Click(object sender, EventArgs e)
+        {
+            /*
+            string name = NameTextBox.Text.Trim();
+            string category = CategoryTextBox.Text.Trim();
+            string priceText = PriceTextBox.Text.Trim();
+            string quantityText = QuantityTextBox.Text.Trim();
+            
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(priceText) || string.IsNullOrEmpty(quantityText))
+            {
+                MessageBox.Show("All fields are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!decimal.TryParse(priceText, out decimal price) || !int.TryParse(quantityText, out int quantity))
+            {
+                MessageBox.Show("Price must be a valid decimal and quantity a valid integer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "INSERT INTO Product (Name, Category, Price, Quantity, AddedDate, LastUpdated) " +
+                                   "VALUES (@Name, @Category, @Price, @Quantity, GETDATE(), GETDATE())";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Name", name);
+                        cmd.Parameters.AddWithValue("@Category", category);
+                        cmd.Parameters.AddWithValue("@Price", price);
+                        cmd.Parameters.AddWithValue("@Quantity", quantity);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+        }
+
+        private void Delete_ITem_Click(object sender, EventArgs e)
+        {
+            /*string name = NameTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Enter the product name to delete.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "DELETE FROM Product WHERE Name = @Name";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Name", name);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Product deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+/*           string name = NameTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Enter the product name to search.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "SELECT * FROM Product WHERE Name = @Name";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Name", name);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                /*
+                                CategoryTextBox.Text = reader["Category"].ToString();
+                                PriceTextBox.Text = reader["Price"].ToString();
+                                QuantityTextBox.Text = reader["Quantity"].ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                ClearFields();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+        }
+
+        private void ClearFields()
+        {
+            /*
+            NameTextBox.Text = string.Empty;
+            CategoryTextBox.Text = string.Empty;
+            PriceTextBox.Text = string.Empty;
+            QuantityTextBox.Text = string.Empty;*/
+        }
+    }
+}
